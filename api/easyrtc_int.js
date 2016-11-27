@@ -5082,9 +5082,9 @@ var Easyrtc = function() {
      */
     this.connect = function(applicationName, successCallback, errorCallback) {
 
-        if (!window.io) {
-            self.showError(self.errCodes.DEVELOPER_ERR, "Your HTML has not included the socket.io.js library");
-        }
+        // if (!window.io && !preallocatedSocketIo) {
+        //     self.showError(self.errCodes.DEVELOPER_ERR, "Your HTML has not included the socket.io.js library");
+        // }
 
         if (!preallocatedSocketIo && self.webSocket) {
             console.error("Developer error: attempt to connect when already connected to socket server");
