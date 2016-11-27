@@ -1902,51 +1902,51 @@ var Easyrtc = function() {
             stream.streamName = streamName;
             registerLocalMediaStreamByName(stream, streamName);
             var videoObj, triesLeft, tryToGetSize, ele;
-            if (haveAudioVideo.video) {
-                videoObj = document.createElement('video');
-                videoObj.muted = true;
-                triesLeft = 30;
-                tryToGetSize = function() {
-                    if (videoObj.videoWidth > 0 || triesLeft < 0) {
-                        self.nativeVideoWidth = videoObj.videoWidth;
-                        self.nativeVideoHeight = videoObj.videoHeight;
-                        if (self._desiredVideoProperties.height &&
-                                (self.nativeVideoHeight !== self._desiredVideoProperties.height ||
-                                        self.nativeVideoWidth !== self._desiredVideoProperties.width)) {
-                            self.showError(self.errCodes.MEDIA_WARNING,
-                                    self.format(self.getConstantString("resolutionWarning"),
-                                    self._desiredVideoProperties.width, self._desiredVideoProperties.height,
-                                    self.nativeVideoWidth, self.nativeVideoHeight));
-                        }
-                        self.setVideoObjectSrc(videoObj, "");
-                        if (videoObj.removeNode) {
-                            videoObj.removeNode(true);
-                        }
-                        else {
-                            ele = document.createElement('div');
-                            ele.appendChild(videoObj);
-                            ele.removeChild(videoObj);
-                        }
+            // if (haveAudioVideo.video) {
+            //     videoObj = document.createElement('video');
+            //     videoObj.muted = true;
+            //     triesLeft = 30;
+            //     tryToGetSize = function() {
+            //         if (videoObj.videoWidth > 0 || triesLeft < 0) {
+            //             self.nativeVideoWidth = videoObj.videoWidth;
+            //             self.nativeVideoHeight = videoObj.videoHeight;
+            //             if (self._desiredVideoProperties.height &&
+            //                     (self.nativeVideoHeight !== self._desiredVideoProperties.height ||
+            //                             self.nativeVideoWidth !== self._desiredVideoProperties.width)) {
+            //                 self.showError(self.errCodes.MEDIA_WARNING,
+            //                         self.format(self.getConstantString("resolutionWarning"),
+            //                         self._desiredVideoProperties.width, self._desiredVideoProperties.height,
+            //                         self.nativeVideoWidth, self.nativeVideoHeight));
+            //             }
+            //             self.setVideoObjectSrc(videoObj, "");
+            //             if (videoObj.removeNode) {
+            //                 videoObj.removeNode(true);
+            //             }
+            //             else {
+            //                 ele = document.createElement('div');
+            //                 ele.appendChild(videoObj);
+            //                 ele.removeChild(videoObj);
+            //             }
 
-                        updateConfigurationInfo();
-                        if (successCallback) {
-                            successCallback(stream);
-                        }
-                    }
-                    else {
-                        triesLeft -= 1;
-                        setTimeout(tryToGetSize, 300);
-                    }
-                };
-                self.setVideoObjectSrc(videoObj, stream);
-                tryToGetSize();
-            }
-            else {
+            //             updateConfigurationInfo();
+            //             if (successCallback) {
+            //                 successCallback(stream);
+            //             }
+            //         }
+            //         else {
+            //             triesLeft -= 1;
+            //             setTimeout(tryToGetSize, 300);
+            //         }
+            //     };
+            //     self.setVideoObjectSrc(videoObj, stream);
+            //     tryToGetSize();
+            // }
+            // else {
                 updateConfigurationInfo();
                 if (successCallback) {
                     successCallback(stream);
                 }
-            }
+            // }
         };
         /** @private
          * @param {String} error
