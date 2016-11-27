@@ -4959,17 +4959,17 @@ var Easyrtc = function() {
         //
         // find our easyrtcsid
         //
-        var cookies, target, i;
-        var easyrtcsid = null;
-        if (self.cookieId && document.cookie) {
-            cookies = document.cookie.split(/[; ]/g);
-            target = self.cookieId + "=";
-            for (i = 0; i < cookies.length; i++) {
-                if (cookies[i].indexOf(target) === 0) {
-                    easyrtcsid = cookies[i].substring(target.length);
-                }
-            }
-        }
+        // var cookies, target, i;
+        // var easyrtcsid = null;
+        // if (self.cookieId && document.cookie) {
+        //     cookies = document.cookie.split(/[; ]/g);
+        //     target = self.cookieId + "=";
+        //     for (i = 0; i < cookies.length; i++) {
+        //         if (cookies[i].indexOf(target) === 0) {
+        //             easyrtcsid = cookies[i].substring(target.length);
+        //         }
+        //     }
+        // }
 
         if (!self.roomJoin) {
             self.roomJoin = {};
@@ -4989,9 +4989,9 @@ var Easyrtc = function() {
         if (self.roomJoin && !isEmptyObj(self.roomJoin)) {
             msgData.roomJoin = self.roomJoin;
         }
-        if (easyrtcsid) {
-            msgData.easyrtcsid = easyrtcsid;
-        }
+        // if (easyrtcsid) {
+        //     msgData.easyrtcsid = easyrtcsid;
+        // }
         if (credential) {
             msgData.credential = credential;
         }
