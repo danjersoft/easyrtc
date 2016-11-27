@@ -37,7 +37,7 @@
 
 var Easyrtc = function() {
     var self = this;
-    var isFirefox = (webrtcDetectedBrowser === "firefox");
+    var isFirefox = false; //(webrtcDetectedBrowser === "firefox");
     var autoInitUserMedia = true;
     var sdpLocalFilter = null,
             sdpRemoteFilter = null;
@@ -733,12 +733,12 @@ var Easyrtc = function() {
 // Firefox does.
 //
     this.getDatachannelConstraints = function() {
-        if (webrtcDetectedBrowser === "chrome" && webrtcDetectedVersion < 31) {
-            return {reliable: false};
-        }
-        else {
+        // if (webrtcDetectedBrowser === "chrome" && webrtcDetectedVersion < 31) {
+        //     return {reliable: false};
+        // }
+        // else {
             return {reliable: true};
-        }
+        // }
     };
     /** @private */
     haveAudioVideo = {
@@ -2116,12 +2116,13 @@ var Easyrtc = function() {
      * @returns {Boolean}
      */
     this.supportsDataChannels = function() {
-        if (navigator.userAgent.match(/android/i)) {
-            return webrtcDetectedVersion >= 34;
-        }
-        else {
-            return (webrtcDetectedBrowser === "firefox" || webrtcDetectedVersion >= 32);
-        }
+        // if (navigator.userAgent.match(/android/i)) {
+        //     return webrtcDetectedVersion >= 34;
+        // }
+        // else {
+        //     return (webrtcDetectedBrowser === "firefox" || webrtcDetectedVersion >= 32);
+        // }
+        return false;
     };
     /**
      * Sets a listener for data sent from another client (either peer to peer or via websockets).
