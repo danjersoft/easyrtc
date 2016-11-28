@@ -1214,35 +1214,35 @@ var Easyrtc = function() {
         if (self.debugPrinter) {
             self.debugPrinter("saw error " + errorObject.errorText);
         }
-        var errorDiv = document.getElementById('easyrtcErrorDialog');
-        var errorBody;
-        if (!errorDiv) {
-            errorDiv = document.createElement("div");
-            errorDiv.id = 'easyrtcErrorDialog';
-            var title = document.createElement("div");
-            title.innerHTML = "Error messages";
-            title.className = "easyrtcErrorDialog_title";
-            errorDiv.appendChild(title);
-            errorBody = document.createElement("div");
-            errorBody.id = "easyrtcErrorDialog_body";
-            errorDiv.appendChild(errorBody);
-            var clearButton = document.createElement("button");
-            clearButton.appendChild(document.createTextNode("Okay"));
-            clearButton.className = "easyrtcErrorDialog_okayButton";
-            clearButton.onclick = function() {
-                errorBody.innerHTML = ""; // remove all inner nodes
-                errorDiv.style.display = "none";
-            };
-            errorDiv.appendChild(clearButton);
-            document.body.appendChild(errorDiv);
-        }
+        // var errorDiv = document.getElementById('easyrtcErrorDialog');
+        // var errorBody;
+        // if (!errorDiv) {
+        //     errorDiv = document.createElement("div");
+        //     errorDiv.id = 'easyrtcErrorDialog';
+        //     var title = document.createElement("div");
+        //     title.innerHTML = "Error messages";
+        //     title.className = "easyrtcErrorDialog_title";
+        //     errorDiv.appendChild(title);
+        //     errorBody = document.createElement("div");
+        //     errorBody.id = "easyrtcErrorDialog_body";
+        //     errorDiv.appendChild(errorBody);
+        //     var clearButton = document.createElement("button");
+        //     clearButton.appendChild(document.createTextNode("Okay"));
+        //     clearButton.className = "easyrtcErrorDialog_okayButton";
+        //     clearButton.onclick = function() {
+        //         errorBody.innerHTML = ""; // remove all inner nodes
+        //         errorDiv.style.display = "none";
+        //     };
+        //     errorDiv.appendChild(clearButton);
+        //     document.body.appendChild(errorDiv);
+        // }
 
-        errorBody = document.getElementById("easyrtcErrorDialog_body");
-        var messageNode = document.createElement("div");
-        messageNode.className = 'easyrtcErrorDialog_element';
-        messageNode.appendChild(document.createTextNode(errorObject.errorText));
-        errorBody.appendChild(messageNode);
-        errorDiv.style.display = "block";
+        // errorBody = document.getElementById("easyrtcErrorDialog_body");
+        // var messageNode = document.createElement("div");
+        // messageNode.className = 'easyrtcErrorDialog_element';
+        // messageNode.appendChild(document.createTextNode(errorObject.errorText));
+        // errorBody.appendChild(messageNode);
+        // errorDiv.style.display = "block";
     };
 //
 // easyrtc.createObjectURL builds a URL from a media stream.
@@ -1771,31 +1771,31 @@ var Easyrtc = function() {
      *
      */
     this.loadStylesheet = function() {
-
-        //
-        // check to see if we already have an easyrtc.css file loaded
-        // if we do, we can exit immediately.
-        //
-        var links = document.getElementsByTagName("link");
-        var cssIndex, css;
-        for (cssIndex in links) {
-            if (links.hasOwnProperty(cssIndex)) {
-                css = links[cssIndex];
-                if (css.href && (css.href.match(/\/easyrtc.css/))) {
-                    return;
-                }
-            }
-        }
-        //
-        // add the easyrtc.css file since it isn't present
-        //
-        var easySheet = document.createElement("link");
-        easySheet.setAttribute("rel", "stylesheet");
-        easySheet.setAttribute("type", "text/css");
-        easySheet.setAttribute("href", "/easyrtc/easyrtc.css");
-        var headSection = document.getElementsByTagName("head")[0];
-        var firstHead = headSection.childNodes[0];
-        headSection.insertBefore(easySheet, firstHead);
+        throw new Error('ERROR: loadStylesheet not supported');
+        // //
+        // // check to see if we already have an easyrtc.css file loaded
+        // // if we do, we can exit immediately.
+        // //
+        // var links = document.getElementsByTagName("link");
+        // var cssIndex, css;
+        // for (cssIndex in links) {
+        //     if (links.hasOwnProperty(cssIndex)) {
+        //         css = links[cssIndex];
+        //         if (css.href && (css.href.match(/\/easyrtc.css/))) {
+        //             return;
+        //         }
+        //     }
+        // }
+        // //
+        // // add the easyrtc.css file since it isn't present
+        // //
+        // var easySheet = document.createElement("link");
+        // easySheet.setAttribute("rel", "stylesheet");
+        // easySheet.setAttribute("type", "text/css");
+        // easySheet.setAttribute("href", "/easyrtc/easyrtc.css");
+        // var headSection = document.getElementsByTagName("head")[0];
+        // var firstHead = headSection.childNodes[0];
+        // headSection.insertBefore(easySheet, firstHead);
     };
     /** @private
      * @param {String} x */
