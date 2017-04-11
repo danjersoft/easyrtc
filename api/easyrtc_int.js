@@ -4249,7 +4249,8 @@ var Easyrtc = function() {
             else {
                 candidate = new RTCIceCandidate({
                     sdpMLineIndex: msgData.label,
-                    candidate: msgData.candidate
+                    candidate: msgData.candidate,
+                    sdpMid: msgData.id
                 });
             }
             pc = peerConns[caller].pc;
